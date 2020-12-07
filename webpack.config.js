@@ -43,27 +43,27 @@ module.exports = {
         ]
     },
     plugins: [
-        // new ModuleFederationPlugin({
-        //     name: "react-webpack5-typescript-starter", // TODO: Replace with applicable name
-        //     library: {
-        //         type: "var",
-        //         name: "react-webpack5-typescript-starter" // TODO: Replace with applicable name
-        //     },
-        //     filename: "remoteEntry.js",
-        //     remotes: {},
-        //     exposes: {},
-        //     shared: {
-        //         ...dependencies,
-        //         "react": {
-        //             singleton: true,
-        //             requiredVersion: dependencies["react"]
-        //         },
-        //         "react-dom": {
-        //             singleton: true,
-        //             requiredVersion: dependencies["react-dom"]
-        //         }
-        //     }
-        // }),
+        new ModuleFederationPlugin({
+            name: "react-webpack5-typescript-starter", // TODO: Replace with applicable name
+            library: {
+                type: "var",
+                name: "react-webpack5-typescript-starter" // TODO: Replace with applicable name
+            },
+            filename: "remoteEntry.js",
+            remotes: {},
+            exposes: {},
+            shared: {
+                ...dependencies,
+                "react": {
+                    singleton: true,
+                    requiredVersion: dependencies["react"]
+                },
+                "react-dom": {
+                    singleton: true,
+                    requiredVersion: dependencies["react-dom"]
+                }
+            }
+        }),
         new HtmlWebPackPlugin({
             template: "./public/index.html",
         })
